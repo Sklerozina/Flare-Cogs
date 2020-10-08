@@ -148,7 +148,7 @@ class RedditPost(commands.Cog):
             if subreddit in feeds:
                 return await ctx.send("That subreddit is already set to post.")
 
-            url = f"https://www.reddit.com/r/{subreddit}/new.json?sort=new"
+            url = f"https://www.reddit.com/r/{subreddit}/hot.json?sort=new"
 
             response = await self.fetch_feed(url)
 
