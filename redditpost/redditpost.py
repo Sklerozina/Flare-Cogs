@@ -297,6 +297,8 @@ class RedditPost(commands.Cog):
         for feed in data:
             feed = feed["data"]
             timestamp = feed["created_utc"]
+            if feed["stickied"]:
+                continue
             if feed["over_18"] and not channel.is_nsfw():
                 timestamps.append(timestamp)
                 continue
