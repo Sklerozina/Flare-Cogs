@@ -360,7 +360,10 @@ class RedditPost(commands.Cog):
                 try:
                     for emb in embeds[::-1]:
                         if webhook is None:
-                            await channel.send(embed=emb)
+                            if emb.url.endswith(("png", "jpg", "jpeg", "gif")):
+                                await channel.send(embed=emb)
+                            else:
+                                await channel.send(emb.url, embed=emb)
                         else:
                             await webhook.send(
                                 username=f"r/{feed['subreddit']}", avatar_url=icon, embed=emb
