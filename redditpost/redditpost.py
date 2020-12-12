@@ -341,7 +341,7 @@ class RedditPost(commands.Cog):
                 title = title[:252] + "..."
             embed = discord.Embed(
                 title=unescape(title),
-                url=unescape(link),
+                url=unescape(image),
                 description=desc,
                 color=channel.guild.me.color,
                 timestamp=datetime.utcfromtimestamp(feed["created_utc"]),
